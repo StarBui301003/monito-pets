@@ -1,10 +1,29 @@
+import Layout from "@/components/layout/Layout.tsx";
+import { ErrorPage } from "@/pages/ErrorPage";
+import { HomePage } from "@/pages/HomePage.tsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      errorElement: <ErrorPage />,
+      children: [
+        {
+          index: true,
+          element: <HomePage />,
+        },
+        // {
+        //   path: "/project",
+        //   element: <ProjectPage />,
+        // },
+      ],
+    },
+  ]);
   return (
     <>
-      <div className="text-dark-blue-primary body-bold-20">Hello </div>
-      <div className="text-dark-blue-40 body-medium-20">Hello</div>
-      <div className="text-dark-blue-60">Hello</div>
-      <div className="text-dark-blue-80">Hello</div>
+      <RouterProvider router={router} />
     </>
   );
 }
