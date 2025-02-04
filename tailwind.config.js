@@ -172,6 +172,7 @@ export default {
             fontWeight: weight,
             fontSize: `${size}px`,
             lineHeight: `${lineHeight}px`,
+            fontFamily: fontMapping[key],
           };
         });
       });
