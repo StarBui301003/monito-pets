@@ -1,13 +1,13 @@
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import { Input } from "@/components/ui/input";
-import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 import { Separator } from "@/components/ui/separator";
 import { LOGO } from "@/assets/img";
+import { Button } from "@/components/ui/button";
 
 export const Footer = () => {
   return (
-    <footer className="bg-[linear-gradient(to_bottom_right,hsla(39,86%,91%,1),hsla(39,86%,91%,0.8),hsla(39,100%,86%,0.9))] text-dark-blue-80 text-center sm:rounded-t-[40px] rounded-t-[20px]">
+    <footer className="bg-[linear-gradient(to_bottom_right,hsla(39,86%,91%,1),hsla(39,86%,91%,0.8),hsla(39,100%,86%,0.9))] text-dark-blue-80 text-center sm:rounded-t-[40px] rounded-t-[20px] pb-[200px]">
       <div className="sm:pt-20 pt-10 pb-10 wrapper px-4 sm:px-0">
         <div className="bg-primary text-neutral-0 rounded-2xl items-center justify-between sm:h-[136px] sm:flex w-full gap-x-4 mx-0 p-4 sm:p-0">
           <p className="body-bold-20 sm:heading-bold-24 sm:flex-none sm:w-[389px] sm:py-8 sm:pl-8 text-left">

@@ -92,4 +92,8 @@
   .wrapper {
     @apply max-w-[1180px] mx-auto;
   }
+
+  input.truncate-placeholder:placeholder-shown {
+    text-overflow: ellipsis;
+  }
 }
