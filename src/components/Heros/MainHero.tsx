@@ -35,8 +35,9 @@ export const MainHero = () => {
           </div>
         </div>
       </div>
+      {/* on mobile */}
       <div
-        className="sm:hidden block relative bg-cover bg-center inset-0 h-screen rounded-b-[40px] z-10"
+        className="sm:hidden block relative bg-cover bg-center inset-0 h-screen rounded-b-[20px] z-10"
         style={{ backgroundImage: `url(${MAINHEROONM})` }}
       >
         {/* Content */}
@@ -55,7 +56,7 @@ export const MainHero = () => {
           <div className="gap-3 xs:gap-4 flex mt-8">
             <Button
               variant={"ghost"}
-              className="rounded-[57px] xs:px-7 xs:pt-[14px] xs:pb-[10px] px-5 py-3 body-medium-16 h-auto [&_svg]:size-5 border-[1.5px] border-primary"
+              className="rounded-[57px] xs:px-7 xs:pt-[14px] xs:pb-[10px] px-5 py-3 body-medium-16 h-auto [&_svg]:size-5 border-[1.5px] border-primary text-primary"
             >
               View Intro <FaRegCirclePlay />
             </Button>
