@@ -4,6 +4,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      screens: {
+        xs: "400px",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -86,6 +89,7 @@ export default {
   plugins: [
     ({ addUtilities }) => {
       const fontMapping = {
+        extrabold: "Gilroy-ExtraBold",
         bold: "Gilroy-Bold",
         semibold: "Gilroy-SemiBold",
         medium: "Gilroy-Medium",
@@ -93,22 +97,26 @@ export default {
       };
       const headingSizes = [
         {
+          size: 60,
+          lineHeight: 68,
+          weights: { extrabold: 800 },
+        },
+        {
           size: 46,
           lineHeight: 60,
-          weights: { bold: 700, medium: 500, regular: 400 },
+          weights: { extrabold: 800, bold: 700, medium: 500, regular: 400 },
         },
         {
           size: 36,
           lineHeight: 54,
-          weights: { bold: 700, semibold: 600, regular: 400 },
+          weights: { extrabold: 800, bold: 700, semibold: 600, regular: 400 },
         },
         {
           size: 28,
           lineHeight: 38,
-          weights: { bold: 700, medium: 500, regular: 400 },
+          weights: { extrabold: 800, bold: 700, medium: 500, regular: 400 },
         },
         {
-          fontFamily: "Gilroy-Regular",
           size: 24,
           lineHeight: 36,
           weights: { bold: 700, semibold: 600, regular: 400 },

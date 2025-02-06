@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: "Gilroy-ExtraBold";
+  src: local("Gilroy-ExtraBold"),
+    url(./assets/fonts/Gilroy-ExtraBold.ttf) format("truetype");
+}
+@font-face {
   font-family: "Gilroy-Bold";
   src: local("Gilroy-Bold"),
     url(./assets/fonts/Gilroy-Bold.ttf) format("truetype");

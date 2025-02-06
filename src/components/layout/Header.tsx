@@ -46,7 +46,7 @@ export const Header = () => {
     <>
       <div
         className={cn(
-          "fixed top-0 w-full pl-[10px] sm:pl-0 pr-[14px] sm:pr-0 items-center",
+          "fixed top-0 w-full pl-[10px] sm:pl-0 pr-[14px] sm:pr-0 items-center z-20",
           {
             "backdrop-blur": blur,
           }
