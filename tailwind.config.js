@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       screens: {
-        xs: "400px",
+        xs: "380px",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -96,6 +96,11 @@ export default {
         regular: "Gilroy-Regular",
       };
       const headingSizes = [
+        {
+          size: 52,
+          lineHeight: 68,
+          weights: { extrabold: 800 },
+        },
         {
           size: 60,
           lineHeight: 68,

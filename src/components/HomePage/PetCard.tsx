@@ -1,0 +1,57 @@
+import { PRODUCT1 } from "@/assets/img";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardTitle,
+} from "@/components/ui/card";
+import { GoDotFill } from "react-icons/go";
+
+export const PetCard = () => {
+  return (
+    <div className="grid md:grid-cols-4 grid-cols-2 sm:mb-[50px] mb-4 gap-3 md:gap-5">
+      {Array(8)
+        .fill(null)
+        .map((_, index) => (
+          <Card
+            key={index}
+            className=" rounded-[12px] p-2 sm:my-[10px] my-[6px] shadow-[0px_4px_28px_-2px_rgba(0,0,0,0.08)]"
+          >
+            <div>
+              <img src={PRODUCT1} alt="" className=" rounded-[10px]" />
+            </div>
+            <CardContent className="p-2">
+              <CardTitle className="text-neutral-100 sm:body-bold-16 body-bold-14">
+                MO231 - Pomeranian White
+              </CardTitle>
+              <CardDescription className="hidden sm:flex items-center [&_svg]:size-2 gap-1">
+                <div className="body-medium-12">
+                  Gene: <span className="body-bold-12">Male</span>
+                </div>
+                <div className="p-[6px]">
+                  <GoDotFill />
+                </div>
+                <div className="body-medium-12">
+                  Age: <span className="body-bold-12">02 months</span>
+                </div>
+                <CardTitle className="text-neutral-100 body-bold-16">
+                  6.900.000 VND
+                </CardTitle>
+              </CardDescription>
+              <CardDescription className="sm:hidden block items-center [&_svg]:size-2 gap-1">
+                <div className="body-medium-12">
+                  Gene: <span className="body-bold-12">Male</span>
+                </div>
+                <div className="body-medium-12">
+                  Age: <span className="body-bold-12">02 months</span>
+                </div>
+                <CardTitle className="text-neutral-100 body-bold-16">
+                  6.900.000 VND
+                </CardTitle>
+              </CardDescription>
+            </CardContent>
+          </Card>
+        ))}
+    </div>
+  );
+};

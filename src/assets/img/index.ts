@@ -1,4 +1,16 @@
 export { default as LOGO } from "./logo.png";
-export { default as MAINHERO } from "./Hero-Banner.png";
-export { default as MAINHEROONM } from "./Hero-Banner-mobile.png";
+export { default as MAINHERO } from "./Banner/Hero-Banner.png";
+export { default as MAINHEROONM } from "./Banner/Hero-Banner-mobile.png";
 export { default as PRODUCT1 } from "./Frame 7.png";
+export { default as MAINSUBHERO1 } from "./Banner/MainSubHero1.png";
+export { default as MAINSUBHERO2 } from "./Banner/MainSubHero2.png";
+export { default as CATEGORYHERO } from "./Banner/CategoryHero.png";
+export { default as CATEGORYHEROONMOBILE } from "./Banner/CategoryHeroOnMobile.png";
+export { default as MAINSUBHERO1ONMOBILE } from "./Banner/MainSubHero1OnMobile.png";
+export { default as PARTNER1 } from "./Partner/Partner1.png";
+export { default as PARTNER2 } from "./Partner/Partner2.png";
+export { default as PARTNER3 } from "./Partner/Partner3.png";
+export { default as PARTNER4 } from "./Partner/Partner4.png";
+export { default as PARTNER5 } from "./Partner/Partner5.png";
+export { default as PARTNER6 } from "./Partner/Partner6.png";
+export { default as PARTNER7 } from "./Partner/Partner7.png";
