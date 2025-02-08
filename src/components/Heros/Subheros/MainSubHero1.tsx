@@ -3,7 +3,7 @@ import { GhostButton } from "@/components/Buttons/GhostButton";
 import { PrimaryButton } from "@/components/Buttons/PrimaryButton";
 import { FaRegCirclePlay } from "react-icons/fa6";
 
-const MainSubHero1 = () => {
+export const MainSubHero1 = () => {
   return (
     <>
       <div
@@ -37,7 +37,7 @@ const MainSubHero1 = () => {
 
       <div
         className="sm:hidden block bg-cover bg-center inset-0 aspect-[0.596875] w-full
-      rounded-[20px] z-10 mb-[60px] "
+      rounded-[20px] z-10 mb-10"
         style={{ backgroundImage: `url(${MAINSUBHERO1ONMOBILE})` }}
       >
         <div className="text-center aspect-[3.12] px-5 pt-8 w-full">
@@ -63,5 +63,3 @@ const MainSubHero1 = () => {
     </>
   );
 };
-
-export default MainSubHero1;

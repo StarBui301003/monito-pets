@@ -3,7 +3,7 @@ import { GhostButton } from "@/components/Buttons/GhostButton";
 import { PrimaryButton } from "@/components/Buttons/PrimaryButton";
 import { FaRegCirclePlay } from "react-icons/fa6";
 
-const CategorySubHero = () => {
+export const CategorySubHero = () => {
   return (
     <>
       <div
@@ -59,5 +59,3 @@ const CategorySubHero = () => {
     </>
   );
 };
-
-export default CategorySubHero;

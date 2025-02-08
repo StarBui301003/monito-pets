@@ -1,4 +1,4 @@
-import Layout from "@/components/layout/Layout.tsx";
+import { Layout } from "@/components/layout/Layout.tsx";
 import { ErrorPage } from "@/pages/ErrorPage";
 import { HomePage } from "@/pages/HomePage.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";

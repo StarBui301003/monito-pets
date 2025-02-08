@@ -20,7 +20,7 @@ export const MainContentHomePage = (props: IProps) => {
     className = "",
   } = props;
   return (
-    <div className="flex justify-between items-center sm:mb-4 mb-3 max-sm:order-1">
+    <div className="flex justify-between items-center sm:mb-7 mb-3 max-sm:order-1">
       <div className={(cn("block"), className)}>
         <p className="body-medium-16">{title}</p>
         <p className="text-primary sm:heading-bold-24 body-bold-20">

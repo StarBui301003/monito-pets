@@ -14,3 +14,4 @@ export { default as PARTNER4 } from "./Partner/Partner4.png";
 export { default as PARTNER5 } from "./Partner/Partner5.png";
 export { default as PARTNER6 } from "./Partner/Partner6.png";
 export { default as PARTNER7 } from "./Partner/Partner7.png";
+export { default as BLOGIMAGE } from "./image 3.png";

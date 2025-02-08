@@ -3,7 +3,8 @@ import { GhostButton } from "@/components/Buttons/GhostButton";
 import { PrimaryButton } from "@/components/Buttons/PrimaryButton";
 import { FaRegCirclePlay } from "react-icons/fa6";
 import { DogFootPrint } from "@/assets/icons/index";
-const AdoptionBanner = () => {
+
+export const AdoptionBanner = () => {
   return (
     <>
       <div
@@ -41,5 +42,3 @@ const AdoptionBanner = () => {
     </>
   );
 };
-
-export default AdoptionBanner;
