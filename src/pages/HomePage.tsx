@@ -18,6 +18,7 @@ export const HomePage = () => {
           subtitle="Take A Look At Some Of Our Pets"
           buttonText="View more"
           buttonLink="/#"
+          className="mb-5"
         />
         <PetCard />
         <ViewMoreButtonOnMobile buttonLink="/" />
@@ -30,13 +31,13 @@ export const HomePage = () => {
           buttonLink="/#"
         />
         <Products />
-
         <MainContentHomePage
           title="Proud to be part of"
           subtitle="Pet Sellers"
           buttonText="View all our sellers"
           buttonLink="/#"
-          className="hidden sm:flex items-center gap-2"
+          className="items-center gap-2 "
+          wrapperClassName="hidden sm:flex"
         />
         <Partners />
         <AdoptionBanner />
@@ -45,10 +46,10 @@ export const HomePage = () => {
           subtitle="Useful pet knowledge"
           buttonText="View more"
           buttonLink="/#"
-          className="sm:block items-center gap-2"
+          className="sm:block items-center gap-2 mb-5"
         />
-        <ViewMoreButtonOnMobile buttonLink="/" />
         <Blogs />
+        <ViewMoreButtonOnMobile buttonLink="/" />
       </div>
     </>
   );

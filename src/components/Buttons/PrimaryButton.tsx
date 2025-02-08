@@ -16,7 +16,7 @@ export const PrimaryButton = ({ className, children, buttonLink }: IProps) => {
     <Link to={buttonLink!} className="inline-block">
       <Button
         className={cn(
-          "rounded-[57px] xs:px-[36px] xs:pt-[14px] xs:pb-[10px] px-5 pt-[11px] pb-[11px] xs:body-medium-16 h-auto",
+          "rounded-[57px] xs:px-[36px] xs:pb-[10px] px-5 pt-[15px] pb-[11px] xs:body-medium-16 h-auto",
           className
         )}
       >
@@ -26,7 +26,7 @@ export const PrimaryButton = ({ className, children, buttonLink }: IProps) => {
   ) : (
     <Button
       className={cn(
-        "rounded-[57px] xs:px-[36px] xs:pt-[14px] xs:pb-[10px] px-5 pt-[11px] pb-[11px] xs:body-medium-16 h-auto",
+        "rounded-[57px] xs:px-[36px] xs:pb-[10px] px-5 pt-[15px] pb-[11px] xs:body-medium-16 h-auto",
         className
       )}
     >
