@@ -1,9 +1,9 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { Separator } from "@/components/ui/separator";
 import { LOGO } from "@/assets/img";
 import { Button } from "@/components/ui/button";
+import { SocialMediaIcon } from "@/components/SocialMedia/SocialMediaIcon";
 
 export const Footer = () => {
   return (
@@ -52,30 +52,7 @@ export const Footer = () => {
             </Link>
           </div>
           <div className="flex gap-x-10 pt-5 sm:pt-0 justify-center">
-            <Link
-              to="/"
-              className=" text-neutral-100 hover:scale-105 transition-all"
-            >
-              <FaFacebook className="sm:size-6 size-5" />
-            </Link>
-            <Link
-              to="/"
-              className=" text-neutral-100 hover:scale-105 transition-all"
-            >
-              <FaTwitter className="sm:size-6 size-5" />
-            </Link>
-            <Link
-              to="/"
-              className=" text-neutral-100 hover:scale-105 transition-all"
-            >
-              <FaInstagram className="sm:size-6 size-5" />
-            </Link>
-            <Link
-              to="/"
-              className=" text-neutral-100 hover:scale-105 transition-all"
-            >
-              <FaYoutube className="sm:size-6 size-5" />
-            </Link>
+            <SocialMediaIcon />
           </div>
         </div>
         <Separator className="text-neutral-20" />

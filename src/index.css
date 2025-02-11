@@ -102,3 +102,27 @@
     text-overflow: ellipsis;
   }
 }
+
+/* @layer components {
+  .swiper-pagination-bullet {
+    @apply w-[9px] !important h-[9px] !important bg-neutral-20 !important rounded-full !important transition-all !important duration-300 !important ease-in-out !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    @apply w-[22.5px] !important bg-primary!important rounded-[7.5px] !important;
+  }
+} */
+
+.swiper-pagination-bullet {
+  width: 9px !important;
+  height: 9px !important;
+  background-color: #ccd1d2 !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+.swiper-pagination-bullet-active {
+  width: 22.5px !important;
+  background-color: #003459 !important;
+  border-radius: 7.5px !important;
+}

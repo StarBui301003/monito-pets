@@ -1,7 +1,7 @@
 import { MainHero } from "@/components/Heros/MainHero";
 import { MainSubHero1 } from "@/components/Heros/Subheros/MainSubHero1";
 import { MainContentHomePage } from "@/components/HomePage/MainContentHomePage";
-import { PetCard } from "@/components/HomePage/PetCard";
+import { PetList } from "@/components/HomePage/PetListHomePage";
 import { ViewMoreButtonOnMobile } from "@/components/Buttons/ViewMoreButtonOnMobile";
 import { AdoptionBanner } from "@/components/Heros/Subheros/AdoptionBanner";
 import { Partners } from "@/components/HomePage/Partners";
@@ -20,7 +20,7 @@ export const HomePage = () => {
           buttonLink="/#"
           className="mb-5"
         />
-        <PetCard />
+        <PetList />
         <ViewMoreButtonOnMobile buttonLink="/" />
         <MainSubHero1 />
         <MainContentHomePage

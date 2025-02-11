@@ -23,12 +23,12 @@ export const MainContentHomePage = (props: IProps) => {
   } = props;
   return (
     <div
-      className={
-        (cn("flex justify-between items-center sm:mb-7 mb-3 max-sm:order-1"),
-        wrapperClassName)
-      }
+      className={cn(
+        "flex justify-between items-center sm:mb-7 mb-3 max-sm:order-1",
+        wrapperClassName
+      )}
     >
-      <div className={(cn("block "), className)}>
+      <div className={cn("block ", className)}>
         <p className="body-medium-16">{title}</p>
         <p className="text-primary sm:heading-bold-24 body-bold-20">
           {subtitle}

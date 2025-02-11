@@ -1,6 +1,7 @@
 import { Layout } from "@/components/layout/Layout.tsx";
 import { ErrorPage } from "@/pages/ErrorPage";
 import { HomePage } from "@/pages/HomePage.tsx";
+import { PetDetail } from "@/pages/PetDetailPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
@@ -14,10 +15,10 @@ function App() {
           index: true,
           element: <HomePage />,
         },
-        // {
-        //   path: "/project",
-        //   element: <ProjectPage />,
-        // },
+        {
+          path: "/pet-detail",
+          element: <PetDetail />,
+        },
       ],
     },
   ]);
