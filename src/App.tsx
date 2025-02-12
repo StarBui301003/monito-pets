@@ -16,7 +16,7 @@ function App() {
           element: <HomePage />,
         },
         {
-          path: "/pet-detail",
+          path: "/pets/:uuid",
           element: <PetDetail />,
         },
       ],

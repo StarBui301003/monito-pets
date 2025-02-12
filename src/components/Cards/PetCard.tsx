@@ -7,20 +7,29 @@ import {
 } from "@/components/ui/card";
 import { PetProps } from "@/types/PetType";
 import { GoDotFill } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 
 export const PetCard = ({ pet }: { pet: PetProps }) => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    if (pet.uuid) {
+      navigate(`/pets/${pet.uuid}`);
+    }
+  };
   return (
     <Card
+      onClick={handleCardClick}
       key={pet.uuid || pet.sku_code}
-      className="rounded-[12px] p-2 sm:my-[10px] shadow-[0px_4px_28px_-2px_rgba(0,0,0,0.08)]"
+      className="rounded-[12px] p-2 shadow-[0px_4px_28px_-2px_rgba(0,0,0,0.08)]"
     >
       <img
         src={pet.image?.[0] ?? PLACEHOLDERIMAGE}
         alt={pet.name}
-        className="rounded-[10px] w-full h-[264px] object-cover"
+        className="rounded-[10px] w-full sm:h-[264px] h-[169px] aspect-square object-cover"
       />
       <CardContent className="p-2">
-        <CardTitle className="text-neutral-100 sm:body-bold-16 body-bold-14 py-1 sm:py-0">
+        <CardTitle className="text-neutral-100 sm:body-bold-16 body-bold-14 py-1 sm:py-0 line-clamp-1">
           {pet.sku_code} - {pet.name}
         </CardTitle>
         <CardDescription className="sm:flex block items-center [&_svg]:size-2 gap-1">

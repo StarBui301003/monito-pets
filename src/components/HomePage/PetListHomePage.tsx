@@ -4,7 +4,7 @@ import { fetchAllPetsFilter } from "@/services/pet.service";
 import { PetProps } from "@/types/PetType";
 import { useState, useEffect } from "react";
 
-export const PetList = () => {
+export const PetListHomePage = () => {
   const [pets, setPets] = useState<PetProps[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -32,7 +32,17 @@ export const PetList = () => {
         {Array(8)
           .fill(null)
           .map((_, index) => (
-            <Skeleton key={index} className="w-full h-[264px] rounded-lg" />
+            <div
+              key={index}
+              className="rounded-[12px] p-2 shadow-[0px_4px_28px_-2px_rgba(0,0,0,0.08)]"
+            >
+              <Skeleton className="w-full h-[264px] rounded-[10px] mt-1" />
+              <div className="p-2 flex flex-col justify-center h-[84px] gap-1">
+                <Skeleton className="w-3/4 h-[24px] rounded-md" />
+                <Skeleton className="w-3/4 h-[20px] rounded-md" />
+                <Skeleton className="w-1/2 h-[24px] rounded-md" />
+              </div>
+            </div>
           ))}
       </div>
     );

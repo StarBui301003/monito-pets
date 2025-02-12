@@ -1,14 +1,3 @@
-import {
-  TEST1,
-  TEST2,
-  TEST3,
-  TEST4,
-  TEST5,
-  TEST6,
-  TEST7,
-  TEST8,
-  TEST9,
-} from "@/assets/img";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -18,14 +7,17 @@ import {
 import { useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Skeleton } from "@/components/ui/skeleton";
+import { PetProps } from "@/types/PetType";
+import { PLACEHOLDERIMAGE } from "@/assets/img";
+import { cn } from "@/lib/utils";
 
-const images = [TEST1, TEST2, TEST3, TEST4, TEST5, TEST6, TEST7, TEST8, TEST9];
-
-export const ImagePetInfo = () => {
+export const ImagePetInfo = ({ pet }: { pet: PetProps | null }) => {
+  const images = pet?.image || [];
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [loadingImage, setLoadingImage] = useState(true);
   const [loadedThumbnails, setLoadedThumbnails] = useState(0);
   const totalImages = images.length;
+
   const handleNext = () => {
     if (!loadingImage) {
       setSelectedIndex((prev) => (prev + 1) % images.length);
@@ -49,13 +41,20 @@ export const ImagePetInfo = () => {
         <CarouselContent>
           <CarouselItem>
             <Card>
-              <CardContent className="flex aspect-[1.17647] bg-cover w-full items-center justify-center rounded-[10px] p-0 relative">
-                {loadingImage && (
-                  <Skeleton className="absolute inset-0 w-full h-full rounded-[10px]" />
+              {loadingImage && (
+                <Skeleton className="absolute inset-0 w-full h-full rounded-[10px]" />
+              )}
+              <CardContent
+                className={cn(
+                  "flex aspect-[1.17647] bg-cover w-full items-center justify-center rounded-[10px] p-0 relative",
+                  {
+                    "opacity-35": !images[selectedIndex],
+                  }
                 )}
+              >
                 <img
                   loading="lazy"
-                  src={images[selectedIndex]}
+                  src={images[selectedIndex] || PLACEHOLDERIMAGE}
                   className={`w-full h-full object-cover rounded-[10px] transition-opacity ${
                     loadingImage ? "opacity-0" : "opacity-100"
                   }`}
@@ -69,7 +68,7 @@ export const ImagePetInfo = () => {
 
       <Carousel opts={{ align: "start" }} className="w-full !shadow-none">
         <CarouselContent className="!shadow-none gap-3 w-full pl-5">
-          {images.map((image, index) => (
+          {images.map((img, index) => (
             <CarouselItem
               key={index}
               className="basis-1/6 !shadow-none p-0"
@@ -87,7 +86,7 @@ export const ImagePetInfo = () => {
                   )}
                   <img
                     loading="lazy"
-                    src={image}
+                    src={img}
                     className={`cursor-pointer transition-all ease-in-out ${
                       selectedIndex === index
                         ? "w-full h-full object-cover border-[3px] border-mon-yellow-60 rounded-[6px]"
@@ -100,27 +99,31 @@ export const ImagePetInfo = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div
-          className={`absolute left-4 top-[-260%] transform -translate-y-1/2 !shadow-none bg-white/40 border-none p-[9px] text-neutral-0 rounded-full cursor-pointer ${
-            loadingImage ? "opacity-50 pointer-events-none" : ""
-          }`}
-          onClick={handlePrevious}
-        >
-          <span className="text-2xl">
-            <IoIosArrowBack />
-          </span>
-        </div>
+        {images.length > 1 && (
+          <>
+            <div
+              className={`absolute left-4 top-[-260%] transform -translate-y-1/2 !shadow-none bg-white/40 border-none p-[9px] text-neutral-0 rounded-full cursor-pointer ${
+                loadingImage ? "opacity-50 pointer-events-none" : ""
+              }`}
+              onClick={handlePrevious}
+            >
+              <span className="text-2xl">
+                <IoIosArrowBack />
+              </span>
+            </div>
 
-        <div
-          className={`absolute right-4 top-[-260%] transform -translate-y-1/2 !shadow-none bg-white/40 border-none p-[9px] text-neutral-0 rounded-full cursor-pointer ${
-            loadingImage ? "opacity-50 pointer-events-none" : ""
-          }`}
-          onClick={handleNext}
-        >
-          <span className="text-2xl">
-            <IoIosArrowForward />
-          </span>
-        </div>
+            <div
+              className={`absolute right-4 top-[-260%] transform -translate-y-1/2 !shadow-none bg-white/40 border-none p-[9px] text-neutral-0 rounded-full cursor-pointer ${
+                loadingImage ? "opacity-50 pointer-events-none" : ""
+              }`}
+              onClick={handleNext}
+            >
+              <span className="text-2xl">
+                <IoIosArrowForward />
+              </span>
+            </div>
+          </>
+        )}
       </Carousel>
     </div>
   );

@@ -1,11 +1,11 @@
 import { MainHero } from "@/components/Heros/MainHero";
 import { MainSubHero1 } from "@/components/Heros/Subheros/MainSubHero1";
 import { MainContentHomePage } from "@/components/HomePage/MainContentHomePage";
-import { PetList } from "@/components/HomePage/PetListHomePage";
+import { PetListHomePage } from "@/components/HomePage/PetListHomePage";
 import { ViewMoreButtonOnMobile } from "@/components/Buttons/ViewMoreButtonOnMobile";
 import { AdoptionBanner } from "@/components/Heros/Subheros/AdoptionBanner";
 import { Partners } from "@/components/HomePage/Partners";
-import { Products } from "@/components/HomePage/Products";
+import { ProductsListHomePage } from "@/components/HomePage/ProductsListHomePage";
 import { Blogs } from "@/components/HomePage/Blogs";
 export const HomePage = () => {
   return (
@@ -20,7 +20,7 @@ export const HomePage = () => {
           buttonLink="/#"
           className="mb-5"
         />
-        <PetList />
+        <PetListHomePage />
         <ViewMoreButtonOnMobile buttonLink="/" />
         <MainSubHero1 />
         <MainContentHomePage
@@ -30,7 +30,7 @@ export const HomePage = () => {
           buttonText="View more"
           buttonLink="/#"
         />
-        <Products />
+        <ProductsListHomePage />
         <MainContentHomePage
           title="Proud to be part of"
           subtitle="Pet Sellers"

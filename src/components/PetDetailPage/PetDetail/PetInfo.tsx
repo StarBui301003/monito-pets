@@ -7,12 +7,14 @@ import { ShareSocialMedia } from "@/components/SocialMedia/ShareSocialMedia";
 import { PetInfoTable } from "@/components/Table/PetInfoTable";
 
 import { Card } from "@/components/ui/card";
-export const PetInfo = () => {
+import { PetProps } from "@/types/PetType";
+
+export const PetInfo = ({ pet }: { pet: PetProps }) => {
   return (
     <div className="wrapper">
       <Card className="py-[22px] pl-5 pr-[49px] grid grid-cols-[50fr_48fr] gap-[34px] w-full">
         <div>
-          <ImagePetInfo />
+          <ImagePetInfo pet={pet} />
           <SaleButton className="my-[17px] flex gap-[15px] h-auto items-center bg-gradient-to-br from-[#FCEED5] via-[#FCEED5] to-[#FFE7BA] hover:from-[#FCEED5] hover:via-[#FCEED5] hover:to-[#FFE7BA]">
             <div className="flex items-center">
               <div className="px-[7px] py-[9px]">
@@ -32,8 +34,8 @@ export const PetInfo = () => {
 
         <div className="pr-[49px]">
           <BreadcrumbComponent />
-          <HeaderPetInfo />
-          <PetInfoTable />
+          <HeaderPetInfo pet={pet} />
+          <PetInfoTable pet={pet} />
         </div>
       </Card>
     </div>

@@ -1,16 +1,21 @@
 import { GhostButton } from "@/components/Buttons/GhostButton";
 import { PrimaryButton } from "@/components/Buttons/PrimaryButton";
+import { PetProps } from "@/types/PetType";
 import { BsChatLeftDots } from "react-icons/bs";
 
-export const HeaderPetInfo = () => {
+export const HeaderPetInfo = ({ pet }: { pet: PetProps }) => {
   return (
     <>
       <div className="py-[18px]">
-        <div className="text-neutral-40 body-medium-14">SKU #1000078</div>
-        <div className="text-neutral-100 heading-bold-24 mt-[2px] mb-[6px]">
-          Shiba Inu Sepia
+        <div className="text-neutral-40 body-medium-14">
+          SKU #{pet.sku_code}
         </div>
-        <div className="text-primary body-bold-20">34.000.000 VND</div>
+        <div className="text-neutral-100 heading-bold-24 mt-[2px] mb-[6px]">
+          {pet.name}
+        </div>
+        <div className="text-primary body-bold-20">
+          {new Intl.NumberFormat("vi-VN").format(pet.price) + " VND"}
+        </div>
       </div>
       <div className="flex gap-[18px] h-[44px] mb-[18px]">
         <PrimaryButton
