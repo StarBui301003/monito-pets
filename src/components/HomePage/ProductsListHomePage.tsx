@@ -42,11 +42,15 @@ export const ProductsListHomePage = () => {
             >
               <Skeleton className="w-full h-[264px] rounded-[10px] mt-1" />
               <div className="p-2 flex flex-col justify-center h-[136px] gap-2]">
-                <Skeleton className="w-full h-[24px] rounded-md mb-1" />
-                <Skeleton className="w-3/4 h-[24px] rounded-md mb-1" />
-                <Skeleton className="w-3/4 h-[18px] rounded-md mb-1" />
-                <Skeleton className="w-1/2 h-[20px] rounded-md mb-1" />
-                <Skeleton className="w-full h-[34px] rounded-md " />
+                <Skeleton className="h-4 w-[100%] mb-2" />
+                <Skeleton className="h-4 w-[80%] mb-2" />
+                <div className="flex items-center">
+                  <Skeleton className="h-4 w-[30%] mr-2" />
+                  <Skeleton className="h-4 w-[10px] rounded-full" />
+                  <Skeleton className="h-4 w-[40%] ml-2" />
+                </div>
+                <Skeleton className="h-4 w-[60%] my-2" />
+                <Skeleton className="w-[100%] h-[34px] mb-2 " />
               </div>
             </div>
           ))}

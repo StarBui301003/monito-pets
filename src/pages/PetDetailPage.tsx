@@ -50,7 +50,7 @@ export const PetDetail = () => {
         subtitle="Take A Look At Some Of Our Pets"
         buttonText="View more"
         buttonLink="/#"
-        className="mb-5"
+        className="mb-5 mx-4 sm:mx-0"
         buttonClassName="sm:hidden hidden"
       />
       <PetListPetDetailPage excludeUuid={pet.uuid} size={pet.size} />

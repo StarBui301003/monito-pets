@@ -21,13 +21,25 @@ export const CustomerSwiper = () => {
   ];
 
   return (
-    <div className="relative mb-[59px] pl-4">
+    <div className="relative sm:mb-[59px] mb-10 pl-4">
       <div className="text-neutral-100 heading-bold-24 mb-3 mt-6">
         Our lovely customer
       </div>
-      <div className="h-[399px]">
+      <div className="h-[385px]">
         <Swiper
-          slidesPerView={4.5}
+          slidesPerView={1.5}
+          spaceBetween={12}
+          loop
+          breakpoints={{
+            640: {
+              slidesPerView: 4.5,
+              spaceBetween: 12,
+            },
+            // 1024: {
+            //   slidesPerView: 4.5,
+            //   spaceBetween: 16,
+            // },
+          }}
           pagination={{ clickable: true, el: ".swiper-pagination" }}
           modules={[Pagination]}
           className="mySwiper"
@@ -37,7 +49,7 @@ export const CustomerSwiper = () => {
               key={index}
               className="flex items-center justify-center"
             >
-              <div className="w-[248px] h-[340px] rounded-[10px] overflow-hidden">
+              <div className="h-[340px] rounded-[10px] overflow-hidden">
                 <img
                   src={image}
                   alt=""
@@ -47,7 +59,7 @@ export const CustomerSwiper = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="swiper-pagination flex justify-center gap-2 w-full absolute bottom-0 h-auto"></div>
+        <div className="swiper-pagination flex justify-center w-full absolute h-auto"></div>
       </div>
     </div>
   );

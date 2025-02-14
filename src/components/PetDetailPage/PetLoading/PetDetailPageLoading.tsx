@@ -1,3 +1,4 @@
+import { MainContentHomePage } from "@/components/HomePage/MainContentHomePage";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -97,6 +98,39 @@ export const PetDetailPageLoading = () => {
             <Skeleton className="w-[124px] h-[340px] rounded-[10px]" />
           </div>
         </div>
+      </div>
+
+      <div>
+        <MainContentHomePage
+          title="Related Pets"
+          subtitle="Take A Look At Some Of Our Pets"
+          buttonText="View more"
+          buttonLink="/#"
+          className="mb-5 mx-4 sm:mx-0"
+          buttonClassName="sm:hidden hidden"
+        />
+      </div>
+
+      <div className="grid md:grid-cols-4 grid-cols-2 mb-4 my-[6px] gap-3 md:gap-[20px] mx-4 sm:mx-0">
+        {Array(4)
+          .fill(null)
+          .map((_, index) => (
+            <div
+              key={index}
+              className="rounded-[12px] p-2 shadow-[0px_4px_28px_-2px_rgba(0,0,0,0.08)] cursor-pointer"
+            >
+              <Skeleton className="rounded-[10px] w-full sm:h-[264px] h-[169px] aspect-square" />
+              <div className="p-2">
+                <Skeleton className="h-4 w-[80%] mb-2" />
+                <div className="flex items-center">
+                  <Skeleton className="h-4 w-[30%] mr-2" />
+                  <Skeleton className="hidden sm:block h-4 w-[10px] rounded-full" />
+                  <Skeleton className="h-4 w-[40%] ml-2" />
+                </div>
+                <Skeleton className="h-4 w-[60%] mt-2" />
+              </div>
+            </div>
+          ))}
       </div>
     </>
   );
