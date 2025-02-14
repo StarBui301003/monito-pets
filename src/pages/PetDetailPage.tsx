@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { fetchPetById } from "@/services/pet.service";
 import { PetProps } from "@/types/PetType";
 import { ScrollRestoration, useParams } from "react-router-dom";
-import { Skeleton } from "@/components/ui/skeleton";
 import { PetInfo } from "@/components/PetDetailPage/PetDetail/PetInfo";
 import { CustomerSwiper } from "@/components/PetDetailPage/CustomerSwiper";
 import { MainContentHomePage } from "@/components/HomePage/MainContentHomePage";
 import { PetListPetDetailPage } from "@/components/PetDetailPage/PetDetail/PetListPetDetailPage";
+import { PetDetailPageLoading } from "@/components/PetDetailPage/PetLoading/PetDetailPageLoading";
 
 export const PetDetail = () => {
   const { uuid } = useParams<{ uuid: string }>();
@@ -32,10 +32,8 @@ export const PetDetail = () => {
 
   if (loading) {
     return (
-      <div className="container mx-auto p-4">
-        <Skeleton className="w-full h-[400px] rounded-md mb-4" />
-        <Skeleton className="w-1/2 h-[30px] rounded-md mb-2" />
-        <Skeleton className="w-3/4 h-[20px] rounded-md" />
+      <div className="sm:mt-[120px] wrapper sm:mb-16">
+        <PetDetailPageLoading />
       </div>
     );
   }
