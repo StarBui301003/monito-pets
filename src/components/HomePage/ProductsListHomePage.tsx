@@ -19,7 +19,7 @@ export const ProductsListHomePage = () => {
         .fill(null)
         .map((_, index) => ({
           id: `product-${index}`,
-          name: "Reflex Plus Adult Cat Food Salmon",
+          name: "Reflex Plus Adult Cat Food Salmon fkjhdfjk ljkfgjfdglk sklfdjgfđffdfd sfggđ",
           category: "Dog Food",
           size: "385gm",
           price: 140000,

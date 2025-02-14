@@ -10,6 +10,7 @@ interface IProps {
   buttonLink?: string;
   className?: string;
   wrapperClassName?: string;
+  buttonClassName?: string;
 }
 
 export const MainContentHomePage = (props: IProps) => {
@@ -20,6 +21,7 @@ export const MainContentHomePage = (props: IProps) => {
     buttonLink = "",
     className = "",
     wrapperClassName = "",
+    buttonClassName = "",
   } = props;
   return (
     <div
@@ -36,7 +38,10 @@ export const MainContentHomePage = (props: IProps) => {
       </div>
       <Link to={buttonLink}>
         <Button
-          className="hidden sm:flex rounded-[57px] xs:px-7 px-5 py-0 h-11 body-medium-14 [&_svg]:size-3 border-[1.5px] border-primary text-primary "
+          className={cn(
+            "hidden sm:flex rounded-[57px] xs:px-7 px-5 py-0 h-11 body-medium-14 [&_svg]:size-3 border-[1.5px] border-primary text-primary",
+            buttonClassName
+          )}
           variant={"ghost"}
         >
           {buttonText}

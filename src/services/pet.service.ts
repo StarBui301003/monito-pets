@@ -24,3 +24,29 @@ export const fetchPetById = async (petId: string): Promise<PetProps | null> => {
 
   return data;
 };
+
+export const fetchRandomPetsBySize = async (
+  size?: string,
+  excludeUuid?: string
+) => {
+  let query = supabase
+    .from("Pets")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .limit(4);
+
+  if (size) {
+    query = query.eq("size", size);
+  }
+  if (excludeUuid) {
+    query = query.neq("uuid", excludeUuid);
+  }
+
+  const { data, error } = await query;
+
+  if (error) {
+    console.error("Error fetching pets:", error);
+    return [];
+  }
+  return data;
+};

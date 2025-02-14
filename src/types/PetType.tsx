@@ -23,3 +23,8 @@ export interface FilterProps {
   limit?: number;
   ascending?: boolean;
 }
+
+export interface PetListPetDetailPageProps {
+  excludeUuid?: string;
+  size?: string;
+}

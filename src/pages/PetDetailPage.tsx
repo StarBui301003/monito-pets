@@ -5,10 +5,11 @@ import { ScrollRestoration, useParams } from "react-router-dom";
 import { Skeleton } from "@/components/ui/skeleton";
 import { PetInfo } from "@/components/PetDetailPage/PetDetail/PetInfo";
 import { CustomerSwiper } from "@/components/PetDetailPage/CustomerSwiper";
+import { MainContentHomePage } from "@/components/HomePage/MainContentHomePage";
+import { PetListPetDetailPage } from "@/components/PetDetailPage/PetDetail/PetListPetDetailPage";
 
 export const PetDetail = () => {
   const { uuid } = useParams<{ uuid: string }>();
-  console.log("Pet UUID:", uuid);
   const [pet, setPet] = useState<PetProps | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -42,10 +43,19 @@ export const PetDetail = () => {
   if (pet === null) return null;
 
   return (
-    <div className="mt-[120px]">
+    <div className="sm:mt-[120px] wrapper sm:mb-16">
       <ScrollRestoration />
       <PetInfo pet={pet} />
       <CustomerSwiper />
+      <MainContentHomePage
+        title="Related Pets"
+        subtitle="Take A Look At Some Of Our Pets"
+        buttonText="View more"
+        buttonLink="/#"
+        className="mb-5"
+        buttonClassName="sm:hidden hidden"
+      />
+      <PetListPetDetailPage excludeUuid={pet.uuid} size={pet.size} />
     </div>
   );
 };

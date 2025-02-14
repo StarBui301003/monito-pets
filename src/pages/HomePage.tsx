@@ -7,6 +7,7 @@ import { AdoptionBanner } from "@/components/Heros/Subheros/AdoptionBanner";
 import { Partners } from "@/components/HomePage/Partners";
 import { ProductsListHomePage } from "@/components/HomePage/ProductsListHomePage";
 import { Blogs } from "@/components/HomePage/Blogs";
+
 export const HomePage = () => {
   return (
     <>
@@ -42,7 +43,7 @@ export const HomePage = () => {
         <Partners />
         <AdoptionBanner />
         <MainContentHomePage
-          title="You already know ?"
+          title="You already know?"
           subtitle="Useful pet knowledge"
           buttonText="View more"
           buttonLink="/#"

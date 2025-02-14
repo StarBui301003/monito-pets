@@ -21,7 +21,7 @@ export const PetCard = ({ pet }: { pet: PetProps }) => {
     <Card
       onClick={handleCardClick}
       key={pet.uuid || pet.sku_code}
-      className="rounded-[12px] p-2 shadow-[0px_4px_28px_-2px_rgba(0,0,0,0.08)]"
+      className="rounded-[12px] p-2 shadow-[0px_4px_28px_-2px_rgba(0,0,0,0.08)] cursor-pointer"
     >
       <img
         src={pet.image?.[0] ?? PLACEHOLDERIMAGE}

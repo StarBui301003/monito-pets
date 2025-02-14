@@ -66,7 +66,7 @@ export const Header = () => {
               </SheetTrigger>
               <SheetContent side={"left"}>
                 <SheetHeader>
-                  <SheetTitle>Edit profile</SheetTitle>
+                  <SheetTitle>Menu</SheetTitle>
                 </SheetHeader>
                 <div className="grid gap-4 py-4">
                   <Link
@@ -99,11 +99,12 @@ export const Header = () => {
           </div>
 
           {/* Logo */}
-          <img
-            className="sm:h-10 sm:w-[115px] w-[92px] h-[32px] sm:mr-12 mr-0"
-            src={LOGO}
-            alt=""
-          />
+          <Link to={"/"} className="block sm:mr-12 mr-0 shrink-0">
+            <img
+              className="sm:h-10 sm:w-[115px] w-[92px] h-[32px] "
+              src={LOGO}
+            />
+          </Link>
           {/* Navigation */}
           <div className="sm:flex sm:gap-x-12 hidden">
             <Link
