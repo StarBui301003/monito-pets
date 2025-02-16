@@ -1,5 +1,6 @@
 import { PetCard } from "@/components/Cards/PetCard";
 import { Skeleton } from "@/components/ui/skeleton";
+import { cn } from "@/lib/utils";
 import { fetchRandomPetsBySize } from "@/services/pet.service";
 import { PetProps } from "@/types/PetType";
 import { useState, useEffect, useCallback } from "react";
@@ -7,11 +8,15 @@ import { useState, useEffect, useCallback } from "react";
 interface PetListPetDetailPageProps {
   excludeUuid?: string;
   size?: string;
+  className?: string;
+  loadingClassName?: string;
 }
 
 export const PetListPetDetailPage = ({
   excludeUuid,
   size,
+  className,
+  loadingClassName,
 }: PetListPetDetailPageProps) => {
   const [pets, setPets] = useState<PetProps[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -31,7 +36,12 @@ export const PetListPetDetailPage = ({
 
   if (loading) {
     return (
-      <div className="grid md:grid-cols-4 grid-cols-2 gap-3 md:gap-[20px] mx-4 sm:mx-0">
+      <div
+        className={cn(
+          "grid md:grid-cols-4 grid-cols-2 gap-3 md:gap-[20px] mx-4 sm:mx-0",
+          loadingClassName
+        )}
+      >
         {Array(4)
           .fill(null)
           .map((_, index) => (
@@ -56,7 +66,12 @@ export const PetListPetDetailPage = ({
   }
 
   return (
-    <div className="grid md:grid-cols-4 grid-cols-2 mb-4 my-[6px] gap-3 md:gap-[20px] mx-4 sm:mx-0">
+    <div
+      className={cn(
+        "grid md:grid-cols-4 grid-cols-2 mb-4 my-[6px] gap-3 md:gap-[20px] mx-4 sm:mx-0",
+        className
+      )}
+    >
       {pets.map((pet) => (
         <PetCard key={pet.uuid || pet.sku_code} pet={pet} />
       ))}

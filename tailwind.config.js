@@ -145,6 +145,11 @@ export default {
           weights: { bold: 700, medium: 500, regular: 400 },
         },
         {
+          size: 18,
+          lineHeight: 24,
+          weights: { bold: 700, medium: 500, regular: 400 },
+        },
+        {
           size: 14,
           lineHeight: 20,
           weights: { bold: 700, medium: 500, regular: 400 },

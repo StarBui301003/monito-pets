@@ -7,14 +7,25 @@ import { ShareSocialMedia } from "@/components/SocialMedia/ShareSocialMedia";
 import { PetInfoTable } from "@/components/Table/PetInfoTable";
 
 import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { PetProps } from "@/types/PetType";
 
-export const PetInfo = ({ pet }: { pet: PetProps }) => {
+interface IProps {
+  pet: PetProps;
+  className?: string;
+  socialMediaClassName?: string;
+}
+export const PetInfo = ({ pet, className, socialMediaClassName }: IProps) => {
   return (
     <Card className="sm:py-[22px] sm:pl-5 pr-[49px] grid grid-cols-[50fr_48fr] gap-[34px] w-full">
-      <div>
+      <div className="">
         <ImagePetInfo pet={pet} />
-        <SaleButton className="my-[17px] flex gap-[15px] h-auto items-center bg-gradient-to-br from-[#FCEED5] via-[#FCEED5] to-[#FFE7BA] hover:from-[#FCEED5] hover:via-[#FCEED5] hover:to-[#FFE7BA]">
+        <SaleButton
+          className={cn(
+            "my-[17px] flex gap-[15px] h-auto items-center bg-gradient-to-br from-[#FCEED5] via-[#FCEED5] to-[#FFE7BA] hover:from-[#FCEED5] hover:via-[#FCEED5] hover:to-[#FFE7BA]",
+            socialMediaClassName
+          )}
+        >
           <div className="flex items-center">
             <div className="px-[7px] py-[9px]">
               <DogHealthIcon />
@@ -28,13 +39,13 @@ export const PetInfo = ({ pet }: { pet: PetProps }) => {
             100% guarantee of pet identification
           </div>
         </SaleButton>
-        <ShareSocialMedia />
+        <ShareSocialMedia className={socialMediaClassName} />
       </div>
 
       <div className="pr-[49px]">
-        <BreadcrumbComponent />
-        <HeaderPetInfo pet={pet} />
-        <PetInfoTable pet={pet} />
+        <BreadcrumbComponent className={className} />
+        <HeaderPetInfo pet={pet} className={className} />
+        <PetInfoTable pet={pet} className={className} />
       </div>
     </Card>
   );

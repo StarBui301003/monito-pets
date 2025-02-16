@@ -7,6 +7,7 @@ import { CustomerSwiper } from "@/components/PetDetailPage/CustomerSwiper";
 import { MainContentHomePage } from "@/components/HomePage/MainContentHomePage";
 import { PetListPetDetailPage } from "@/components/PetDetailPage/PetDetail/PetListPetDetailPage";
 import { PetDetailPageLoading } from "@/components/PetDetailPage/PetLoading/PetDetailPageLoading";
+import { MobileDrawer } from "@/components/PetDetailPage/MobileDrawer/MobileDrawer";
 
 export const PetDetail = () => {
   const { uuid } = useParams<{ uuid: string }>();
@@ -32,9 +33,14 @@ export const PetDetail = () => {
 
   if (loading) {
     return (
-      <div className="sm:mt-[120px] wrapper sm:mb-16">
-        <PetDetailPageLoading />
-      </div>
+      <>
+        <div className="sm:mt-[120px] wrapper sm:mb-16 sm:block hidden">
+          <PetDetailPageLoading />
+        </div>
+        <div className="sm:mt-[120px] wrapper sm:mb-16 sm:hidden block">
+          {/* <PetDetailPageLoading /> */}
+        </div>
+      </>
     );
   }
 
@@ -43,17 +49,29 @@ export const PetDetail = () => {
   return (
     <div className="sm:mt-[120px] wrapper sm:mb-16">
       <ScrollRestoration />
-      <PetInfo pet={pet} />
+      <PetInfo
+        pet={pet}
+        className="sm:block hidden"
+        socialMediaClassName="sm:flex hidden"
+      />
       <CustomerSwiper />
       <MainContentHomePage
         title="Related Pets"
         subtitle="Take A Look At Some Of Our Pets"
         buttonText="View more"
         buttonLink="/#"
-        className="mb-5 mx-4 sm:mx-0"
-        buttonClassName="sm:hidden hidden"
+        className="sm:block hidden mb-5 mx-4 sm:mx-0"
+        buttonClassName="sm:flex hidden"
       />
-      <PetListPetDetailPage excludeUuid={pet.uuid} size={pet.size} />
+      <PetListPetDetailPage
+        excludeUuid={pet.uuid}
+        size={pet.size}
+        className="sm:flex hidden"
+        loadingClassName="sm:flex hidden"
+      />
+      <div className="block sm:hidden">
+        <MobileDrawer pet={pet} />
+      </div>
     </div>
   );
 };

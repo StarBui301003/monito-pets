@@ -1,6 +1,11 @@
+import { cn } from "@/lib/utils";
 import { PetProps } from "@/types/PetType";
 
-export const PetInfoTable = ({ pet }: { pet: PetProps }) => {
+interface IProps {
+  pet: PetProps;
+  className?: string;
+}
+export const PetInfoTable = ({ pet, className }: IProps) => {
   const rows = [
     { label: "SKU", value: pet.sku_code },
     { label: "Gender", value: pet.gender },
@@ -20,20 +25,19 @@ export const PetInfoTable = ({ pet }: { pet: PetProps }) => {
   ];
 
   return (
-    <div>
-      <div>
-        {rows.map((row, index) => (
-          <div
-            key={index}
-            className="hover:bg-transparent border-b border-neutral-10 flex items-center"
-          >
-            <div className="text-neutral-60 body-medium-14 pl-[11px] py-[11px] w-[194px]">
-              {row.label}
-            </div>
-            <div className="text-neutral-60 body-medium-14">: {row.value}</div>
+    <div className={cn("", className)}>
+      {rows.map((row, index) => (
+        <div
+          key={index}
+          className="hover:bg-transparent border-b border-neutral-10 flex items-center"
+        >
+          <div className="text-neutral-60 body-medium-14 pl-[11px] py-[11px] w-[194px] shrink-0">
+            {row.label}
           </div>
-        ))}
-      </div>
+
+          <div className="text-neutral-60 body-medium-14">: {row.value}</div>
+        </div>
+      ))}
     </div>
   );
 };

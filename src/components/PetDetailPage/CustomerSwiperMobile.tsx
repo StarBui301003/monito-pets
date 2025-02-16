@@ -10,7 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { Pagination } from "swiper/modules";
 
-export const CustomerSwiper = () => {
+export const CustomerSwiperMobile = () => {
   const images = [
     CUSTOMERP1,
     CUSTOMERP2,
@@ -25,10 +25,10 @@ export const CustomerSwiper = () => {
       <div className="text-neutral-100 heading-bold-24 mb-3 mt-6">
         Our lovely customer
       </div>
-      <div className="h-[385px] desktop-swiper">
+      <div className="h-[385px] mobile-swiper">
         <Swiper
-          key={"desktop-swiper"}
-          id="desktop-swiper"
+          key={"mobile-swiper"}
+          id="mobile-swiper"
           slidesPerView={1.5}
           spaceBetween={12}
           loop
@@ -44,10 +44,10 @@ export const CustomerSwiper = () => {
           }}
           pagination={{
             clickable: true,
-            el: ".swiper-pagination-desktop-swiper",
+            el: ".swiper-pagination-mobile-swiper",
           }}
           modules={[Pagination]}
-          className="desktop-swiper"
+          className="mobile-swiper"
         >
           {images.map((image, index) => (
             <SwiperSlide
@@ -64,7 +64,7 @@ export const CustomerSwiper = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="swiper-pagination-desktop-swiper flex justify-center w-full absolute h-auto"></div>
+        <div className="swiper-pagination-mobile-swiper flex justify-center w-full absolute h-auto"></div>
       </div>
     </div>
   );

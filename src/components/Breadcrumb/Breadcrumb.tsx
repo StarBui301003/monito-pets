@@ -6,10 +6,14 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { cn } from "@/lib/utils";
 
-export const BreadcrumbComponent = () => {
+interface IProps {
+  className?: string;
+}
+export const BreadcrumbComponent = ({ className }: IProps) => {
   return (
-    <Breadcrumb>
+    <Breadcrumb className={cn("", className)}>
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink href="/">Home</BreadcrumbLink>

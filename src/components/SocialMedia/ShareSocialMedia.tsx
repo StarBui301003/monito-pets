@@ -1,10 +1,14 @@
 import { SocialMediaIcon } from "@/components/SocialMedia/SocialMediaIcon";
+import { cn } from "@/lib/utils";
 import { LuShare2 } from "react-icons/lu";
 
-export const ShareSocialMedia = () => {
+interface IProps {
+  className?: string;
+}
+export const ShareSocialMedia = ({ className }: IProps) => {
   return (
     <>
-      <div className="flex py-[6px] px-[10px] gap-[21px]">
+      <div className={cn("flex py-[6px] px-[10px] gap-[21px]", className)}>
         <div className="flex gap-2">
           <LuShare2 size={20} />
           <div className="body-bold-14 text-primary">Share: </div>
