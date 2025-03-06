@@ -1,31 +1,35 @@
 import {
   Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
+  BreadcrumbItem as ShadBreadcrumbItem,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { cn } from "@/lib/utils";
-
+import { BreadcrumbItem } from "@/types/BreadcrumbType";
+import { Link } from "react-router-dom";
 interface IProps {
+  items: BreadcrumbItem[];
   className?: string;
 }
-export const BreadcrumbComponent = ({ className }: IProps) => {
+
+export const BreadcrumbComponent = ({ items, className }: IProps) => {
   return (
-    <Breadcrumb className={cn("", className)}>
+    <Breadcrumb className={className}>
       <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/components">Components</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-        </BreadcrumbItem>
+        {items.map((item, index) => (
+          <ShadBreadcrumbItem key={index}>
+            {item.href ? (
+              <Link
+                to={item.href}
+                className="text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <span className="text-gray-900 font-medium">{item.label}</span>
+            )}
+            {index < items.length - 1 && <BreadcrumbSeparator />}
+          </ShadBreadcrumbItem>
+        ))}
       </BreadcrumbList>
     </Breadcrumb>
   );

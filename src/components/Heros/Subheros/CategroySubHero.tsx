@@ -8,7 +8,7 @@ export const CategorySubHero = () => {
     <>
       <div
         className="hidden sm:block bg-cover bg-center inset-0 aspect-[3.12] w-full
-      rounded-[20px] z-10 mb-[60px]"
+      rounded-[20px] z-10"
         style={{ backgroundImage: `url(${CATEGORYHERO})` }}
       >
         <div className="text-right aspect-[3.12] w-[403px] ml-auto pt-16 mr-[85px]">

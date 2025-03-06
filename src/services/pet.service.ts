@@ -4,7 +4,7 @@ import { FilterProps, PetProps } from "@/types/PetType";
 const VITE_DB_NAME = import.meta.env.VITE_DB_NAME;
 
 export const fetchAllPetsFilter = async (props: FilterProps) => {
-  const { order = "", limit = 10, ascending = true } = props;
+  const { order = "", limit = 15, ascending = true } = props;
   const { data } = await supabase
     .from(VITE_DB_NAME)
     .select("*")
@@ -75,4 +75,32 @@ export const fetchRandomPetsBySize = async (
     return [];
   }
   return data;
+};
+
+export const fetchPetCategory = async (petUuid: string) => {
+  try {
+    if (!petUuid) throw new Error("Invalid pet UUID");
+
+    const { data, error } = await supabase
+      .from("Pet_Category_Dev")
+      .select("category_id")
+      .eq("pet_id", petUuid)
+      .single();
+
+    if (error || !data) throw new Error("Category not found");
+
+    const { data: categoryData, error: categoryError } = await supabase
+      .from("Category-Dev")
+      .select("slug")
+      .eq("uuid", data.category_id)
+      .single();
+
+    if (categoryError || !categoryData)
+      throw new Error("Category slug not found");
+
+    return categoryData.slug;
+  } catch (error) {
+    console.error("Error fetching pet category:", error);
+    return null;
+  }
 };

@@ -12,7 +12,7 @@ import { GoDotFill } from "react-icons/go";
 
 export const ProductCard = ({ product }: { product: ProductProps }) => {
   return (
-    <Card className="rounded-[12px] p-2 shadow-[0px_4px_28px_-2px_rgba(0,0,0,0.08)]">
+    <Card className="rounded-[12px] p-2 shadow-[0px_4px_28px_-2px_rgba(0,0,0,0.08)] cursor-pointer transition-transform duration-200 hover:scale-105">
       <div>
         <img
           src={product.image ?? PRODUCT1}

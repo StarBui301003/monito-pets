@@ -1,33 +1,39 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import "@/components/BottomSheet/BottomSheet.styles.css";
-import { PropsWithChildren, TouchEvent, useCallback, useRef, useState } from "react";
+import {
+  PropsWithChildren,
+  TouchEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 export function BottomSheet({ children }: PropsWithChildren) {
   const [isDragging, setIsDragging] = useState(false);
   const [startY, setStartY] = useState(0);
   const [startHeight, setStartHeight] = useState(50);
-  const [contentHeight, setContentHeight] = useState("20px");
+  const [contentHeight, setContentHeight] = useState("40px");
   const bottomSheetRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const dragStart = (e: TouchEvent) => {
-    e.stopPropagation();
-    e.preventDefault();
     setIsDragging(true);
     setStartY(e.touches?.[0].pageY);
-    const contentAbsoluteHeight = contentRef.current?.getBoundingClientRect().height ?? 0;
+    const contentAbsoluteHeight =
+      contentRef.current?.getBoundingClientRect().height ?? 0;
     setStartHeight(contentAbsoluteHeight);
     bottomSheetRef.current?.classList.add("dragging");
   };
 
   const dragMove = useCallback(
     (e: any) => {
-      e.stopPropagation();
-      e.preventDefault();
       if (!isDragging) return;
       const delta = startY - e.touches?.[0].pageY;
 
-      setContentHeight(`${((startHeight + delta) / window.innerHeight) * 100}vh`);
+      setContentHeight(
+        `${((startHeight + delta) / window.innerHeight) * 100}vh`
+      );
     },
     [isDragging, startY, startHeight]
   );
@@ -37,7 +43,8 @@ export function BottomSheet({ children }: PropsWithChildren) {
     setIsDragging(false);
     bottomSheetRef.current?.classList.remove("dragging");
 
-    const contentAbsoluteHeight = contentRef.current?.getBoundingClientRect().height ?? 0;
+    const contentAbsoluteHeight =
+      contentRef.current?.getBoundingClientRect().height ?? 0;
     const delta = contentAbsoluteHeight - startHeight;
     const isMovedUp = delta >= 0;
 
@@ -51,7 +58,7 @@ export function BottomSheet({ children }: PropsWithChildren) {
         setContentHeight("80vh");
         bottomSheetRef.current?.classList.add("show");
       } else {
-        setContentHeight("20px");
+        setContentHeight("40px");
         bottomSheetRef.current?.classList.remove("show");
       }
     }
@@ -63,11 +70,21 @@ export function BottomSheet({ children }: PropsWithChildren) {
         setContentHeight("80vh");
         bottomSheetRef.current?.classList.add("show");
       } else {
-        setContentHeight("20px");
+        setContentHeight("40px");
         bottomSheetRef.current?.classList.remove("show");
       }
     }
   }, [contentHeight, isDragging, startHeight]);
+
+  useEffect(() => {
+    window.addEventListener("touchmove", dragMove, { passive: false });
+    window.addEventListener("touchend", dragStop, { passive: false });
+
+    return () => {
+      window.removeEventListener("touchmove", dragMove);
+      window.removeEventListener("touchend", dragStop);
+    };
+  }, [dragMove, dragStop]);
 
   return (
     <div className="bottom-sheet" ref={bottomSheetRef}>
@@ -79,7 +96,7 @@ export function BottomSheet({ children }: PropsWithChildren) {
           height: contentHeight,
         }}
       >
-        <div className="header" onTouchMove={dragMove} onTouchEnd={dragStop}>
+        <div className="header">
           <div className="drag-icon" onTouchStart={dragStart}>
             <span></span>
           </div>

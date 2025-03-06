@@ -5,23 +5,37 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+import { fetchPetCategory } from "@/services/pet.service";
 import { PetProps } from "@/types/PetType";
+import { useEffect, useState } from "react";
 import { GoDotFill } from "react-icons/go";
 import { useNavigate } from "react-router-dom";
 
 export const PetCard = ({ pet }: { pet: PetProps }) => {
   const navigate = useNavigate();
+  const [category, setCategory] = useState<string | null>(null);
+
+  useEffect(() => {
+    const getCategory = async () => {
+      if (pet.uuid) {
+        const categorySlug = await fetchPetCategory(pet.uuid);
+        setCategory(categorySlug);
+      }
+    };
+
+    getCategory();
+  }, [pet.uuid]);
 
   const handleCardClick = () => {
-    if (pet.uuid) {
-      navigate(`/pets/${pet.uuid}`);
-    }
+    if (!pet.uuid || !category) return;
+    const petSlug = pet.slug || pet.name.toLowerCase().replace(/\s+/g, "-");
+    navigate(`/pets/${category}/${petSlug}.id=${pet.uuid}`);
   };
   return (
     <Card
       onClick={handleCardClick}
       key={pet.uuid || pet.sku_code}
-      className="rounded-[12px] p-2 shadow-[0px_4px_28px_-2px_rgba(0,0,0,0.08)] cursor-pointer"
+      className="rounded-[12px] p-2 shadow-[0px_4px_28px_-2px_rgba(0,0,0,0.08)] cursor-pointer transition-transform duration-200 hover:scale-105"
     >
       <img
         src={pet.image?.[0] ?? PLACEHOLDERIMAGE}

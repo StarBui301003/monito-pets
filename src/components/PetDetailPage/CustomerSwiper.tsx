@@ -9,8 +9,13 @@ import {
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { Pagination } from "swiper/modules";
+import { cn } from "@/lib/utils";
 
-export const CustomerSwiper = () => {
+interface IProps {
+  className?: string;
+}
+
+export const CustomerSwiper = ({ className }: IProps) => {
   const images = [
     CUSTOMERP1,
     CUSTOMERP2,
@@ -21,7 +26,7 @@ export const CustomerSwiper = () => {
   ];
 
   return (
-    <div className="relative sm:mb-[59px] mb-10 pl-4">
+    <div className={cn("relative sm:mb-[59px] mb-10 pl-4", className)}>
       <div className="text-neutral-100 heading-bold-24 mb-3 mt-6">
         Our lovely customer
       </div>

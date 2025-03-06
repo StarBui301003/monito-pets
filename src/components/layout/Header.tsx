@@ -4,6 +4,7 @@ import { CiSearch } from "react-icons/ci";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { IoIosArrowForward } from "react-icons/io";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,6 +24,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import {
+  HoverCard,
+  HoverCardTrigger,
+  HoverCardContent,
+} from "@radix-ui/react-hover-card";
 
 export const Header = () => {
   const [position, setPosition] = React.useState("bottom");
@@ -113,12 +119,56 @@ export const Header = () => {
             >
               Home
             </Link>
-            <Link
-              to="/"
-              className="body-bold-16 text-dark-blue-primary border-b border-b-transparent hover:border-neutral-100 transition-colors select-none"
-            >
-              Category
-            </Link>
+            <HoverCard openDelay={0}>
+              <HoverCardTrigger asChild>
+                <Link
+                  to="/pets/dogs"
+                  className="body-bold-14 text-dark-blue-primary flex items-center"
+                >
+                  Category
+                </Link>
+              </HoverCardTrigger>
+
+              <HoverCardContent className="p-3 bg-white shadow-lg rounded-md z-50 mt-2">
+                <div className="flex flex-col w-32">
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <div className="flex items-center justify-between">
+                        <Link
+                          to="/pets/dogs"
+                          className="body-bold-14 text-dark-blue-primary flex items-center"
+                        >
+                          Dog
+                        </Link>
+                        <IoIosArrowForward className="ml-2 text-neutral-600" />
+                      </div>
+                    </HoverCardTrigger>
+                    <HoverCardContent className="p-3 bg-white shadow-lg rounded-md z-50 mt-2">
+                      <div className="flex flex-col space-y-1 w-32">
+                        <Link
+                          to="/pets/dogs?type=small-dog"
+                          className="body-bold-14 text-dark-blue-primary"
+                        >
+                          Small Dog
+                        </Link>
+                        <Link
+                          to="/pets/dogs?type=medium-dog"
+                          className="body-bold-14 text-dark-blue-primary"
+                        >
+                          Medium Dog
+                        </Link>
+                        <Link
+                          to="/pets/dogs?type=large-dog"
+                          className="body-bold-14 text-dark-blue-primary"
+                        >
+                          Large Dog
+                        </Link>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </div>
+              </HoverCardContent>
+            </HoverCard>
             <Link
               to="/"
               className="body-bold-16 text-dark-blue-primary border-b border-b-transparent hover:border-neutral-100 transition-colors select-none"
@@ -141,7 +191,7 @@ export const Header = () => {
             <Input
               type="email"
               placeholder="Search something here!"
-              className="body-medium-14 border-none truncate-placeholder ml-0 my-[2px] text-neutral-40"
+              className="body-medium-14 border-none truncate-placeholder ml-0 my-[2px] text-neutral-40 shadow-none"
             />
           </div>
           {/* mobile search bar */}
